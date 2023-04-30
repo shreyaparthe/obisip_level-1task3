@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempreture Converter</title>
+    <style>
+        h1 {
+            margin: 40px;
+            padding: 10px;
+        }
+
+
+        .container1 {
+            background-color: #fff3a16b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 70px auto;
+            width: 600px;
+            padding: 65px;
+            height: 300px;
+            border: 1px solid rgb(194 194 194);
+            border-radius: 10px;
+        }
+
+        .container {
+            display: flex;
+
+        }
+
+        .input-temp {
+            display: flex;
+            flex-direction: column;
+            padding: 6px;
+            margin: 10px;
+        }
+
+        .out-temp {
+            width: 220px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid;
+        }
+
+        .btn {
+            width: 88px;
+            margin: 40px auto;
+            background-color: #ff3333;
+            padding: 8px;
+            border: 1px solid white;
+            color: white;
+            border-radius: 11px;
+
+        }
+
+        .btn:hover {
+            background-color: rgb(255, 120, 120);
+            cursor: pointer;
+        }
+
+        #equal {
+            display: flex;
+            margin: 0px 20px;
+            font-size: 37px;
+            font-weight: bold;
+        }
+
+        img {
+            height: 75px;
+            margin: -25px 1px;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container1">
+        <h1>Tempreture Converter
+            <img src="sun1.png" alt="">
+        </h1>
+        <div class="container">
+            <div class="input-temp1">
+                <input type="number" name="inputTemperature" id="inputTemperature" class="input-temp">
+                <input type="radio" id="Celsius" name="UOM" value="Celsius" checked>
+                <label for="Celsius">Celsius</label>
+                <input type="radio" id="Farenheit" name="UOM" value="Farenheit">
+                <label for="Farenheit"> Farenheit</label>
+
+            </div>
+            <div id="equal">=</div>
+            <div class="out-temp" id="convertedTemp">
+            </div>
+        </div>
+        <button class="btn" onclick="converted_ans()">Convert</button>
+    </div>
+
+    <script>
+        function converted_ans() {
+            var x = document.getElementById("inputTemperature").value;
+            var displayString = "";
+            var y = document.querySelector('input[name="UOM"]:checked').value;
+            if (y == "Celsius") {
+                var z = (x * 1.8) + 32;
+                displayString = z + " Farenheit";
+            }
+
+            else {
+                var z = (x - 32) / 1.8;
+
+                displayString = z + "  Celsius";
+            }
+
+            document.getElementById("convertedTemp").innerHTML = displayString;
+        }
+
+    </script>
+</body>
+
+</html>
